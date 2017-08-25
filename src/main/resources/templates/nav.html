@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8"/>
+<title>jon-cms</title>
+</head>
+<body>
+	<nav class="navbar-default navbar-static-side" role="navigation" th:fragment="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> 
+                    	<span>
+                            <img alt="image" class="img-circle" th:src="@{/img/profile_small.jpg}" />
+						</span>
+                    	<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> 
+                            	<span class="block m-t-xs">
+                            		<strong class="font-bold">Mr.lv</strong>
+                             	</span> 
+                             </span>
+                     	</a>
+                    </div>
+                    <div class="logo-element">
+                        MOXI
+                    </div>
+                </li>
+                <li>
+                    <a th:href="@{dashboard}"><i class="fa fa-diamond"></i> <span class="nav-label">仪表盘</span></a>
+                </li>
+                <li id="news">
+                    <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">内容管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li id="newsManage"><a th:href="@{newsManage_0_0_0}">文章管理</a></li>
+                        <li id="newsCategoryManage"><a th:href="@{newsCategoryManage_0_0_0}">文章分类</a></li>
+                        <li id=""><a href="#">广告位管理</a></li>
+                        <li id=""><a href="#">广告管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">商品管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="#">商品管理</a></li>
+                        <li><a href="#">库存管理</a></li>
+                        <li><a href="#">商品分类</a></li>
+                        <li><a href="#">商品标签</a></li>
+                        <li><a href="#">商品参数</a></li>
+                        <li><a href="#">商品属性</a></li>
+                        <li><a href="#">商品规格</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">订单管理</span><span class="label label-warning pull-right">16</span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="#">订单管理</a></li>
+                        <li><a href="#">订单支付</a></li>
+                        <li><a href="#">订单退款</a></li>
+                        <li><a href="#">订单发货</a></li>
+                        <li><a href="#">订单退货</a></li>
+                        <li><a href="#">发货点管理</a></li>
+                        <li><a href="#">快递单模板</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">会员管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="#">会员管理</a></li>
+                        <li><a href="#">会员等级</a></li>
+                        <li><a href="#">等级规则</a></li>
+                        <li><a href="#">积分管理</a></li>
+                        <li><a href="#">积分规则</a></li>
+                        <li><a href="#">预存款管理</a></li>
+                        <li><a href="#">咨询管理</a></li>
+                        <li><a href="#">评论管理</a></li>
+                        <li><a href="#">消息管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">营销管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="#">促销管理</a></li>
+                        <li><a href="#">优惠券管理</a></li>
+                        <li><a href="#">SEO管理</a></li>
+                        <li><a href="#">邮件营销</a></li>
+                        <li><a href="#">短信营销</a></li>
+                        <li><a href="#">消息推送</a></li>
+                        <li><a href="#">事件营销</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-globe"></i> <span class="nav-label">统计分析</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="#">商品统计</a></li>
+                        <li><a href="#">订单统计</a></li>
+                        <li><a href="#">会员统计</a></li>
+                        <li><a href="#">销售额统计</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="#">系统设置</a></li>
+                        <li><a href="#">地区设置</a></li>
+                        <li><a href="#">支付方式</a></li>
+                        <li><a href="#">配送方式</a></li>
+                        <li><a href="#">物流公司</a></li>
+                        <li><a href="#">管理员</a></li>
+                        <li><a href="#">管理员角色</a></li>
+                        <li><a href="#">管理员权限</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">首页</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
+
+
+
