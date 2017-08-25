@@ -1,7 +1,7 @@
 package org.jon.lv.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.jon.lv.domain.SysAdmin;
-import org.springframework.stereotype.Repository;
 
 /**
  * @Package: org.jon.lv.mapper.SysAdminMapper.java
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  * @date 2017/08/25 12:04
  * version v1.0.0
  */
-@Repository
+//@Repository
 public interface SysAdminMapper {
     /**
      * @Description: 根据主键删除数据库的记录
@@ -80,4 +80,11 @@ public interface SysAdminMapper {
      * @throws []
      */
     int updateByPrimaryKey(SysAdmin record);
+
+    /**
+     * 根据用户名查询管理员
+     * @param userName
+     * @return
+     */
+    SysAdmin findAdminByUserName(@Param("userName")String userName);
 }

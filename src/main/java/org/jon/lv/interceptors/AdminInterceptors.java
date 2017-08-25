@@ -1,6 +1,7 @@
 package org.jon.lv.interceptors;
 
 import org.jon.lv.annotation.UnLoginLimit;
+import org.jon.lv.constant.Constant;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -44,7 +45,7 @@ public class AdminInterceptors extends WebMvcConfigurerAdapter {
                     return true;
                 }else{
                     // 需要登录接口 -- 判断session中是否已经存在
-                    Object object = request.getSession().getAttribute("admin");
+                    Object object = request.getSession().getAttribute(Constant.CURRENT_SESSION_ADMIN);
                     if(object == null){
                         response.sendRedirect("/admin/login");
                     }

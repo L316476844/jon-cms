@@ -49,7 +49,7 @@ public class MD5Utils {
 
 	public static void main(String[] args) {
 
-		String str = "hello world=====";
+		String str = "123456";
 
 		System.out.println(encrypt(str));
 	}

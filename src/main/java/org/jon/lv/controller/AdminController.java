@@ -2,6 +2,11 @@ package org.jon.lv.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import org.jon.lv.annotation.UnLoginLimit;
+import org.jon.lv.constant.Constant;
+import org.jon.lv.domain.SysAdmin;
+import org.jon.lv.result.ResultDO;
+import org.jon.lv.service.AdminService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +26,9 @@ import java.util.Random;
 @Controller
 @RequestMapping(value = "admin")
 public class AdminController {
+
+	@Autowired
+	private AdminService adminService;
 
 	public final static String SESSION_KEYCODE = "SESSION_KEYCODE";//验证码
 
@@ -115,17 +123,21 @@ public class AdminController {
 
 		String code = String.valueOf(session.getAttribute(SESSION_KEYCODE));
 
-		if ("jon".equals(userName) && "123456".equals(password)
-				&& code.equalsIgnoreCase(captcha)) {
-			JSONObject object = new JSONObject();
-			object.put("userName", userName);
-			object.put("password", password);
-			session.setAttribute("admin", object);
-			return "redirect:dashboard";
-		} else {
-			model.addAttribute("error", "用户名或密码错误，请重新登录！");
+		if (!code.equalsIgnoreCase(captcha)) {
+			model.addAttribute("error", "验证码错误！");
 			return "login";
 		}
+
+		ResultDO<SysAdmin> resultDO = adminService.login(userName, password);
+		if(!resultDO.isSuccess()){
+			model.addAttribute("error", resultDO.getErrMsg());
+			return "login";
+		}else {
+
+		}
+		session.setAttribute(Constant.CURRENT_SESSION_ADMIN, resultDO.getData());
+
+		return "redirect:dashboard";
 	}
 
 	/**

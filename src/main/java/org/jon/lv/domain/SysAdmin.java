@@ -5,11 +5,10 @@ import java.util.Date;
 /**
  * @Package: org.jon.lv.domain.SysAdmin.java
  * @Description: 管理员; InnoDB free: 3072 kB
- * @Company: null
- * @Copyright: Copyright (c) 2017 
+ * @Copyright: Copyright (c) 2017
  * All right reserved.
  * Author jon lv
- * @date 2017/08/25 12:04
+ * @date 2017/08/25 16:19
  * version v1.0.0
  */
 public class SysAdmin {
@@ -19,17 +18,32 @@ public class SysAdmin {
     private Long id;
 
     /**
-     * mobile
+     * 用户名
      */
-    private String mobile;
+    private String userName;
 
     /**
-     * password
+     * 密码
      */
     private String password;
 
     /**
-     * header
+     * 昵称
+     */
+    private String nickName;
+
+    /**
+     * 性别 0-男 1-女 2-未知
+     */
+    private Integer gender;
+
+    /**
+     * 手机号
+     */
+    private String mobile;
+
+    /**
+     * 头像地址
      */
     private String header;
 
@@ -77,25 +91,25 @@ public class SysAdmin {
     }
 
     /**
-     * 获取mobile
+     * 获取用户名
      *
-     * @return mobile
+     * @return user_name
      */
-    public String getMobile() {
-        return mobile;
+    public String getUserName() {
+        return userName;
     }
 
     /**
-     * 设置mobile
+     * 设置用户名
      *
-     * @param mobile
+     * @param userName
      */
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
     /**
-     * 获取password
+     * 获取密码
      *
      * @return password
      */
@@ -104,7 +118,7 @@ public class SysAdmin {
     }
 
     /**
-     * 设置password
+     * 设置密码
      *
      * @param password
      */
@@ -113,7 +127,61 @@ public class SysAdmin {
     }
 
     /**
-     * 获取header
+     * 获取昵称
+     *
+     * @return nick_name
+     */
+    public String getNickName() {
+        return nickName;
+    }
+
+    /**
+     * 设置昵称
+     *
+     * @param nickName
+     */
+    public void setNickName(String nickName) {
+        this.nickName = nickName == null ? null : nickName.trim();
+    }
+
+    /**
+     * 获取性别 0-男 1-女 2-未知
+     *
+     * @return gender
+     */
+    public Integer getGender() {
+        return gender;
+    }
+
+    /**
+     * 设置性别 0-男 1-女 2-未知
+     *
+     * @param gender
+     */
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    /**
+     * 获取手机号
+     *
+     * @return mobile
+     */
+    public String getMobile() {
+        return mobile;
+    }
+
+    /**
+     * 设置手机号
+     *
+     * @param mobile
+     */
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
+    }
+
+    /**
+     * 获取头像地址
      *
      * @return header
      */
@@ -122,7 +190,7 @@ public class SysAdmin {
     }
 
     /**
-     * 设置header
+     * 设置头像地址
      *
      * @param header
      */
@@ -223,7 +291,7 @@ public class SysAdmin {
     /**
      * @Title toString
      * @Author jon lv
-     * @Date 2017/08/25 12:04
+     * @Date 2017/08/25 16:19
      * @return java.lang.String
      * @throws []
      */
@@ -234,8 +302,11 @@ public class SysAdmin {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", mobile=").append(mobile);
+        sb.append(", userName=").append(userName);
         sb.append(", password=").append(password);
+        sb.append(", nickName=").append(nickName);
+        sb.append(", gender=").append(gender);
+        sb.append(", mobile=").append(mobile);
         sb.append(", header=").append(header);
         sb.append(", createTime=").append(createTime);
         sb.append(", creator=").append(creator);

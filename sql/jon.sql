@@ -4,7 +4,7 @@
 # Server version:               5.0.96-community-nt
 # Server OS:                    Win64
 # HeidiSQL version:             5.0.0.3272
-# Date/time:                    2017-08-25 12:01:58
+# Date/time:                    2017-08-25 17:21:38
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -32,11 +32,13 @@ CREATE TABLE IF NOT EXISTS `sys_admin` (
   `modify_time` datetime default NULL COMMENT '最后修改时间',
   `modifier` bigint(20) NOT NULL default '-1' COMMENT '修改人',
   `version` bigint(20) NOT NULL default '0' COMMENT '版本号',
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='管理员';
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `user_name` (`user_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='管理员';
 
-# Dumping data for table jon_cms.sys_admin: 0 rows
+# Dumping data for table jon_cms.sys_admin: 1 rows
 /*!40000 ALTER TABLE `sys_admin` DISABLE KEYS */;
+INSERT INTO `sys_admin` (`id`, `user_name`, `password`, `nick_name`, `gender`, `mobile`, `header`, `create_time`, `creator`, `modify_time`, `modifier`, `version`) VALUES (1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'jon', 0, '127823789', '', '2017-08-25 12:02:52', -1, '2017-08-25 12:02:56', -1, 0);
 /*!40000 ALTER TABLE `sys_admin` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
