@@ -21,18 +21,54 @@
             <br/>
             <h3>Register to jon-cms</h3>
             <p>Create account to see it in action.</p>
-            <form class="m-t" role="form" action="login.html">
+            <form class="form-horizontal" role="form" action="">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name" required=""/>
+                    <input type="text" name="userName" class="form-control" placeholder="用户名" required=""/>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email" required=""/>
+                    <input type="password" name="password" class="form-control" placeholder="密码" required=""/>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required=""/>
+                    <input type="text" name="nickName" class="form-control" placeholder="昵称" required=""/>
                 </div>
                 <div class="form-group">
-                        <div class="checkbox i-checks"><label> <input type="checkbox"/><i></i> Agree the terms and policy </label></div>
+                    <input type="tel" name="mobile" class="form-control" placeholder="手机号" required=""/>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-2 control-label" for="headerPath" style="text-align: left;padding-left: 0;">头 像：</label>
+                    <div class="col-sm-6">
+                        <input type="file" name="headerPath" id="headerPath" placeholder="头像" required=""/>
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-2 control-label" style="text-align: left;padding-left: 0;">性 别：</label>
+                    <div class="col-sm-4">
+                            <input type="radio" name="gender" value="0" checked="checked"/> 男
+                            <input type="radio" name="gender" value="1"/> 女
+                    </div>
+                </div>
+
+                <!--<div class="form-group form-horizontal">
+                    <label class="col-lg-4">
+                        头像：
+                    </label>
+                    <div class="col-lg-8">
+                        <input type="file" name="header" placeholder="头像" required=""/>
+                    </div>
+                </div>-->
+               <!-- <div class="form-group form-horizontal">
+                    <label class="col-lg-4">
+                        性别：
+                    </label>
+                    <div class="col-lg-8">
+                        <input type="radio" name="gender" value="0" checked="checked"/> 男
+                        <input type="radio" name="gender" value="1"/> 女
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <div class="checkbox i-checks">
+                        <label><input type="checkbox" checked="checked" required=""/><i></i> Agree the terms and policy </label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
 
