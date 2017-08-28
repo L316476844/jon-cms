@@ -5,12 +5,16 @@
 2、**使用AdminInterceptors拦截器进行权限校验。** <br/>
 3、**使用GlobalExceptionHandler统一异常处理。** <br/>
 <br/>
-登录:
+**登录:**
 <img src="https://github.com/L316476844/jon-cms/blob/master/files/login.png" alt="login">
-注册：
+<br/>
+**注册：**
 <img src="https://github.com/L316476844/jon-cms/blob/master/files/register.png" alt="register">
-管理中心：
+<br/>
+**管理中心：**
 <img src="https://github.com/L316476844/jon-cms/blob/master/files/dashboard.png" alt="register">
-工程结构:
+<br/>
+**工程结构:**<br/>
+<br/>
 <img src="https://github.com/L316476844/jon-cms/blob/master/files/structure.png" alt="register">
 
