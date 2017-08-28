@@ -42,4 +42,25 @@ public class AdminServiceImpl implements AdminService {
 
         return resultDO;
     }
+
+    @Override
+    public ResultDO<SysAdmin> register(SysAdmin admin) {
+        ResultDO<SysAdmin> resultDO = new ResultDO<>();
+        SysAdmin sysAdmin = sysAdminMapper.findAdminByUserName(admin.getUserName());
+
+        if(sysAdmin != null){
+            resultDO.setErrMsg("用户名已存在!");
+            return resultDO;
+        }
+
+        admin.setCreator(-1L);
+        admin.setModifier(-1L);
+        admin.setPassword(MD5Utils.encrypt(admin.getPassword()));
+        sysAdminMapper.insert(admin);
+
+        resultDO.setData(admin);
+        resultDO.setSuccess(true);
+
+        return resultDO;
+    }
 }

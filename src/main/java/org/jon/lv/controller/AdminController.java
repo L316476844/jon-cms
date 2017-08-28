@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
@@ -133,9 +136,8 @@ public class AdminController {
 			model.addAttribute("error", resultDO.getErrMsg());
 			return "login";
 		}else {
-
+			session.setAttribute(Constant.CURRENT_SESSION_ADMIN, resultDO.getData());
 		}
-		session.setAttribute(Constant.CURRENT_SESSION_ADMIN, resultDO.getData());
 
 		return "redirect:dashboard";
 	}
@@ -152,6 +154,38 @@ public class AdminController {
 		return "register";
 	}
 
+
+	@UnLoginLimit
+	@PostMapping("/register")
+	public String register(SysAdmin admin, @RequestParam(value = "headerFile", required = true) MultipartFile file,
+						   HttpServletRequest request, Model model){
+		String path = request.getSession().getServletContext().getRealPath("upload");
+//		String fileName = file.getOriginalFilename();
+        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();;
+		System.out.println(path);
+		File targetFile = new File(path, fileName);
+		if(!targetFile.exists()){
+			targetFile.mkdirs();
+		}
+		//保存
+		try {
+			file.transferTo(targetFile);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		admin.setHeader(request.getContextPath()+"/upload/"+fileName);
+
+		ResultDO<SysAdmin> resultDO = adminService.register(admin);
+		if(!resultDO.isSuccess()){
+			model.addAttribute("error", resultDO.getErrMsg());
+			return "register";
+		}else {
+			request.getSession().setAttribute(Constant.CURRENT_SESSION_ADMIN, resultDO.getData());
+		}
+
+		return "redirect:dashboard";
+	}
 
 	/**
 	 * 退出登录

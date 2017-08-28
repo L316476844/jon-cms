@@ -20,4 +20,11 @@ public interface AdminService {
      * @return
      */
     ResultDO<SysAdmin> login(String userName, String password);
+
+    /**
+     * 注册
+     * @param admin
+     * @return
+     */
+    ResultDO<SysAdmin> register(SysAdmin admin);
 }
