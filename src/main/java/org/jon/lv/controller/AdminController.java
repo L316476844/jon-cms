@@ -1,6 +1,7 @@
 package org.jon.lv.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.io.FileUtils;
 import org.jon.lv.annotation.UnLoginLimit;
 import org.jon.lv.constant.Constant;
 import org.jon.lv.domain.SysAdmin;
@@ -162,18 +163,17 @@ public class AdminController {
 		String path = request.getSession().getServletContext().getRealPath("upload");
 //		String fileName = file.getOriginalFilename();
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();;
-		System.out.println(path);
-		File targetFile = new File(path, fileName);
-		if(!targetFile.exists()){
-			targetFile.mkdirs();
-		}
+//		File targetFile = new File(path, fileName);
+//		if(!targetFile.exists()){
+//			targetFile.mkdirs();
+//		}
 		//保存
 		try {
-			file.transferTo(targetFile);
+			FileUtils.copyInputStreamToFile(file.getInputStream(),new File(path, fileName));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		System.out.println(path);
 		admin.setHeader(request.getContextPath()+"/upload/"+fileName);
 
 		ResultDO<SysAdmin> resultDO = adminService.register(admin);

@@ -10,5 +10,5 @@ package org.jon.lv.constant;
  */
 public interface Constant {
 
-    String CURRENT_SESSION_ADMIN = "SESSION_ADMIN";
+    String CURRENT_SESSION_ADMIN = "admin";
 }
